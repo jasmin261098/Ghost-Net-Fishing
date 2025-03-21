@@ -1,8 +1,9 @@
+/*if style not working press Strg+F5 for a hard refresh*/
+
 
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     color: #333;
-    background-color: #a4dded;
 }
 
 h1 {
@@ -10,4 +11,10 @@ h1 {
     font-size: 4.5em;
     font-weight: 700;
     color: #222;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }

@@ -8,33 +8,36 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
 </h:head>
 <h:body>
-	<h1>Ghost Net Fishing</h1>
+	<h:panelGroup layout="block" styleClass="header">
+		<h:graphicImage value="#{resource['images/Sea-Shepherd_Logo.jpg']}" 
+						library="images" 
+						alt="Sea Shepherd Logo"
+						style="height: 175px; width: auto;"/>
+		<h1>Ghost Net Fishing</h1>
+	</h:panelGroup>
+	
 	<h:form>
 		<p:dataTable var="aufgabe" value="#{aufgabenListe.liste}">
 			<f:facet name="header">
-				<h2>Aufgabenliste</h2>
+				<h2>Geisternetze</h2>
 			</f:facet>
-			<p:column headerText="Text">
+			<p:column headerText="Id">
 				<p:outputLabel value="#{aufgabe.text}" />
 			</p:column>
-			<p:column headerText="Person">
+			<p:column headerText="Standort">
 				<p:outputLabel value="#{aufgabe.person}" />
 			</p:column>
-			<p:column headerText="Fällig am">
+			<p:column headerText="Größe">
 				<p:datePicker value="#{aufgabe.faelligAm}" disabled="true" />
 			</p:column>
-			<p:column headerText="Erledigt">
+			<p:column headerText="Status">
 				<p:button icon="pi pi-check" styleClass="rounded-button"
 					rendered="#{aufgabe.erledigt}" disabled="true" />
 				<p:button icon="pi pi-check"
 					styleClass="rounded-button ui-button-outlined"
 					rendered="#{!aufgabe.erledigt}" disabled="true" />
 			</p:column>
-			<p:column headerText="Aufwand">
-				<p:outputLabel id="output" value="#{aufgabe.aufwand}" />
-			</p:column>
 		</p:dataTable>
-		<p:commandButton value="Ändern" icon="pi pi-pencil" action="#{controller.startEdit()}" />
 	</h:form>
 </h:body>
 </html>
