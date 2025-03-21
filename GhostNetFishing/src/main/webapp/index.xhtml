@@ -17,26 +17,22 @@
 	</h:panelGroup>
 	
 	<h:form>
-		<p:dataTable var="aufgabe" value="#{aufgabenListe.liste}">
-			<f:facet name="header">
-				<h2>Geisternetze</h2>
-			</f:facet>
-			<p:column headerText="Id">
-				<p:outputLabel value="#{aufgabe.text}" />
-			</p:column>
-			<p:column headerText="Standort">
-				<p:outputLabel value="#{aufgabe.person}" />
-			</p:column>
-			<p:column headerText="Größe">
-				<p:datePicker value="#{aufgabe.faelligAm}" disabled="true" />
-			</p:column>
-			<p:column headerText="Status">
-				<p:button icon="pi pi-check" styleClass="rounded-button"
-					rendered="#{aufgabe.erledigt}" disabled="true" />
-				<p:button icon="pi pi-check"
-					styleClass="rounded-button ui-button-outlined"
-					rendered="#{!aufgabe.erledigt}" disabled="true" />
-			</p:column>
+		<p:dataTable var="geisternetz" value="#{geisternetzListe.liste}" lazy="false">
+		    <f:facet name="header">
+		        <h2>Geisternetze</h2>
+		    </f:facet>
+		    <p:column headerText="Id">
+		        <p:outputLabel value="#{geisternetz.id}" />
+		    </p:column>
+		    <p:column headerText="Standort">
+		        <p:outputLabel value="#{geisternetz.standort}" />
+		    </p:column>
+		    <p:column headerText="Größe">
+		        <p:outputLabel value="#{geisternetz.größe}" />
+		    </p:column>
+		    <p:column headerText="Status">
+		        <p:outputLabel value="#{geisternetz.status}" />
+		    </p:column>
 		</p:dataTable>
 	</h:form>
 </h:body>
