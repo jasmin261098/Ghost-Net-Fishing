@@ -5,6 +5,9 @@ public class Geisternetz {
     private GPS standort;
     private float größe;
     private Geisternetzstatus status;
+    
+    public Geisternetz() {
+    }
 
     public Geisternetz(int id, GPS standort, float größe, Geisternetzstatus status) {
         this.id = id;

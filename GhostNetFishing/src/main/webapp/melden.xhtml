@@ -16,20 +16,17 @@
 		<h1>Geisternetz melden</h1>
 	</h:panelGroup>
 	
-	<!--Formular zum Melden eines Geisternetzes-->
+	<!-- Formular zum Melden eines Geisternetzes -->
 	<h:form>
-		<h:panelGrid columns="2" cellpadding="5">
-			<h:outputLabel for="standort" value="Standort (Längen- und Breitengrad)" />
-			<h:inputText id="standort" value="#{Geisternetz.standort}" required="true" />
-			
-			<h:outputLabel for="größe" value="Geschätzte Größe (in m²)" />
-			<h:inputText id="größe" value="#{Geisternetz.größe}" required="true" />
-			
-			<h:outputLabel for="status" value="Status" />
-			<h:inputText id="status" value="#{Geisternetz.status}" required="true"/>
-			
-			<h:commandButton value="Melden" action="#{Geisternetzliste.meldeGeisternetz}" />
-		</h:panelGrid>
+	    <h:panelGrid columns="2" cellpadding="5">
+	        <h:outputLabel for="standort" value="Standort (Längen- und Breitengrad):" />
+	        <h:inputText id="standort" value="#{geisternetzForm.geisternetz.standort}" required="true" />
+	        
+	        <h:outputLabel for="größe" value="Geschätzte Größe (in m²):" />
+	        <h:inputText id="größe" value="#{geisternetzForm.geisternetz.größe}" required="true" />
+	        
+	        <h:commandButton value="Melden" action="#{geisternetzForm.meldeGeisternetz}" />
+	    </h:panelGrid>
 	</h:form>
 </h:body>
 </html>
