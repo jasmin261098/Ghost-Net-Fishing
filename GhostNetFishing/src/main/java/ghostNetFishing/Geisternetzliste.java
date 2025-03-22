@@ -10,6 +10,8 @@ import jakarta.inject.Named;
 @Named("geisternetzListe")
 @ApplicationScoped
 public class Geisternetzliste implements Serializable {
+	private static final long serialVersionUID = 1L;
+	
     private List<Geisternetz> liste = new ArrayList<>();
 
     public Geisternetzliste() {
@@ -22,8 +24,11 @@ public class Geisternetzliste implements Serializable {
         liste.add(net1);
         liste.add(net2);
     }
+    
+    public void addGeisternetz(Geisternetz geisternetz) {
+    	liste.add(geisternetz);
+    }
 
-    // No need for getInstance() method
     public List<Geisternetz> getListe() {
         return liste;
     }
