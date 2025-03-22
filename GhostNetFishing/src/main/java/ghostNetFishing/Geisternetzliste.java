@@ -23,7 +23,6 @@ public class Geisternetzliste implements Serializable {
         liste.add(net2);
     }
 
-    // No need for getInstance() method
     public List<Geisternetz> getListe() {
         return liste;
     }
