@@ -18,12 +18,10 @@ public class BergendePerson {
 	}
 	
 	public BergendePerson(String name, String passwort) {
-		super();
 		this.name = name;
 		this.passwort = passwort;
 	}
 	public BergendePerson() {
-		super();
 	}
 	
 	@Override

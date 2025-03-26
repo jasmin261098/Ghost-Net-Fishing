@@ -50,9 +50,11 @@ public class GeisternetzController implements Serializable  {
 		float lon = Float.parseFloat(longitude);
 		Geisternetz geisternetz = new Geisternetz(this.id, new GPS(lat, lon), this.größe, Geisternetzstatus.GEMELDET);
 		
-        geisternetzliste.getListe().add(geisternetz);
+        geisternetzliste.addGeisternetz(geisternetz);
         
         return "index?faces-redirect=true";
 	}
+	
+
 
 }

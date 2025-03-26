@@ -10,14 +10,41 @@
 <h:body>
 
 	<h:panelGroup layout="block" styleClass="header">
-		<h:graphicImage value="#{resource['images/Sea-Shepherd_Logo.jpg']}" 
-						library="images" 
-						alt="Sea Shepherd Logo"
-						style="height: 175px; width: auto;"/>
+		<h:graphicImage value="#{resource['images/Sea-Shepherd_Logo.jpg']}"
+			library="images" alt="Sea Shepherd Logo"
+			style="height: 175px; width: auto;" />
 		<h1>Ghost Net Fishing</h1>
-		<h3>Willkommen {User hier einfügen}</h3>
+		<h3>Willkommen #{aktuellerBenutzer.name}</h3>
 	</h:panelGroup>
 
+	<h:form>
+		<p:dataTable var="geisternetz" value="#{geisternetzListe.liste}"
+			lazy="false">
+			<f:facet name="header">
+				<h2>Geisternetze</h2>
+			</f:facet>
+			<p:column headerText="Id">
+				<p:outputLabel value="#{geisternetz.id}" />
+			</p:column>
+			<p:column headerText="Bergung zugewiesen">
+				<p:outputLabel value="#{geisternetz.bergendePerson}" />
+			</p:column>
+			<p:column headerText="Standort">
+				<p:outputLabel value="#{geisternetz.standort}" />
+			</p:column>
+			<p:column headerText="Größe in m²">
+				<p:outputLabel value="#{geisternetz.größe}" />
+			</p:column>
+			<p:column headerText="Status">
+				<p:outputLabel value="#{geisternetz.status}" />
+			</p:column>
+			<p:column headerText="Meldungen">
+				<p:commandButton value="Bergung eintragen"
+					action="#{geisternetzListe.bergungEintragen(geisternetz.id, aktuellerBenutzer.name)}"
+					update="@form" />
+			</p:column>
+		</p:dataTable>
+	</h:form>
 
 </h:body>
 </html>

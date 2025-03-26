@@ -5,6 +5,7 @@ public class Geisternetz {
     private GPS standort;
     private float größe;
     private Geisternetzstatus status;
+    private String bergendePerson = "";
 
     public Geisternetz(int id, GPS standort, float größe, Geisternetzstatus status) {
         this.id = id;
@@ -44,4 +45,11 @@ public class Geisternetz {
     public void setStatus(Geisternetzstatus status) {
         this.status = status;
     }
+    
+    public String getBergendePerson() {
+		return bergendePerson;
+	}
+    public void setBergendePerson(String bergendePerson) {
+		this.bergendePerson = bergendePerson;
+	}
 }

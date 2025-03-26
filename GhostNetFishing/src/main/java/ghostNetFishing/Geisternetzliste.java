@@ -28,6 +28,16 @@ public class Geisternetzliste implements Serializable {
     public void addGeisternetz(Geisternetz geisternetz) {
     	liste.add(geisternetz);
     }
+    
+	public void bergungEintragen(int id, String aktuellerBenutzer) {
+        for (Geisternetz netz : this.getListe()) {
+            if (netz.getId() == id) {
+                netz.setStatus(Geisternetzstatus.BERGUNG_BEVORSTEHEND);
+                netz.setBergendePerson(aktuellerBenutzer);
+                break; 
+            }
+        }
+	}
 
     public List<Geisternetz> getListe() {
         return liste;
