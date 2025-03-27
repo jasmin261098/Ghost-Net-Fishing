@@ -19,7 +19,7 @@ public class Geisternetzliste implements Serializable {
         Geisternetz net1 = new Geisternetz(1, gps1, 15.5f, Geisternetzstatus.GEMELDET);
         
         GPS gps2 = new GPS(53.379189f, 5.900093f);
-        Geisternetz net2 = new Geisternetz(2, gps2, 20.0f, Geisternetzstatus.BERGUNG_BEVORSTEHEND);
+        Geisternetz net2 = new Geisternetz(2, gps2, 20.0f, Geisternetzstatus.GEMELDET);
 
         liste.add(net1);
         liste.add(net2);
@@ -38,8 +38,18 @@ public class Geisternetzliste implements Serializable {
             }
         }
 	}
+	
+	public void bergungAbgeschlossen(int id) {
+		for (Geisternetz netz : this.getListe()) {
+            if (netz.getId() == id && netz.getStatus() == Geisternetzstatus.BERGUNG_BEVORSTEHEND) {
+                netz.setStatus(Geisternetzstatus.GEBORGEN);
+                break; 
+            }
+        }
+	}
 
-    public List<Geisternetz> getListe() {
+
+	public List<Geisternetz> getListe() {
         return liste;
     }
     
