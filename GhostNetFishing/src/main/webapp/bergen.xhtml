@@ -18,8 +18,11 @@
 	</h:panelGroup>
 
 	<h:form>
-		<p:dataTable var="geisternetz" value="#{geisternetzListe.liste}"
-			lazy="false">
+		<p:dataTable var="geisternetz" value="#{geisternetzListe.liste}" 
+			widgetVar="geisternetz" 
+			lazy="false"
+			emptyMessage="Keine Geisternetze gefunden">
+			
 			<f:facet name="header">
 				<h2>Geisternetze</h2>
 			</f:facet>
@@ -35,8 +38,14 @@
 			<p:column headerText="Größe in m²">
 				<p:outputLabel value="#{geisternetz.größe}" />
 			</p:column>
-			<p:column headerText="Status">
-				<p:outputLabel value="#{geisternetz.status}" />
+			<p:column headerText="Status" filterBy="#{geisternetz.status}" filterMatchMode="exact">
+				<f:facet name="filter">
+					<p:selectOneMenu onchange="PF('geisternetz').filter()">
+						<f:selectItem itemLabel="Alle" itemValue="" />
+						<f:selectItems value="#{geisternetzListe.statusWerte}" var="status" itemLabel="#{status}" itemValue="#{status}" />
+					</p:selectOneMenu>
+				</f:facet>
+				#{geisternetz.status}
 			</p:column>
 			<p:column headerText="Meldungen">
 				<p:commandButton value="Bergung eintragen"

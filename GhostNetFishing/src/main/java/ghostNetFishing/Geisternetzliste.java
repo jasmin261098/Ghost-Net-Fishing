@@ -42,4 +42,8 @@ public class Geisternetzliste implements Serializable {
     public List<Geisternetz> getListe() {
         return liste;
     }
+    
+    public Geisternetzstatus[] getStatusWerte() {
+        return Geisternetzstatus.values();
+    }
 }

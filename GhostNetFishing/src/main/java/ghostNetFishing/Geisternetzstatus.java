@@ -4,5 +4,5 @@ public enum Geisternetzstatus {
     GEMELDET,
     BERGUNG_BEVORSTEHEND,
     GEBORGEN,
-    VERSCHOLLEN
+    VERSCHOLLEN;
 }
