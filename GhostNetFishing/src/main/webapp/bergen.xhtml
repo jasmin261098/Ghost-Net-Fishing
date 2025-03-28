@@ -49,9 +49,13 @@
 				#{geisternetz.status}
 			</p:column>
 			<p:column headerText="Meldungen">
-				<p:commandButton value="Bergung eintragen"
+				<p:commandButton value="Bergung anmelden"
 					action="#{geisternetzListe.bergungEintragen(geisternetz.id, aktuellerBenutzer.name)}"
-					update="@form" />
+					disabled="#{!geisternetzListe.enableBergunganmeldenButton(geisternetz.id)}"
+					update="@form">
+					<f:setPropertyActionListener value="#{true}"
+						target="#{buttonController.disable}" />
+				</p:commandButton>
 				<p:commandButton value="Bergung abgeschlossen"
 					action="#{geisternetzListe.bergungAbgeschlossen(geisternetz.id)}"
 					disabled="#{!geisternetzListe.enableBergungButton(geisternetz.id)}"

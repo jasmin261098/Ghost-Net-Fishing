@@ -39,6 +39,15 @@ public class Geisternetzliste implements Serializable {
         }
 	}
 	
+	public boolean enableBergunganmeldenButton(int id) {
+	    for (Geisternetz netz : liste) {
+	        if (netz.getId() == id) {
+	            return netz.getStatus() == Geisternetzstatus.GEMELDET;
+	        }
+	    }
+	    return false;
+	}
+	
 	public void bergungAbgeschlossen(int id) {
 		for (Geisternetz netz : this.getListe()) {
             if (netz.getId() == id && netz.getStatus() == Geisternetzstatus.BERGUNG_BEVORSTEHEND) {
