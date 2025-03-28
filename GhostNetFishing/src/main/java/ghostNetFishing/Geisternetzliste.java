@@ -48,10 +48,28 @@ public class Geisternetzliste implements Serializable {
         }
 	}
 	
-	public boolean shouldEnableButton(int id) {
+	public boolean enableBergungButton(int id) {
 	    for (Geisternetz netz : liste) {
 	        if (netz.getId() == id) {
 	            return netz.getStatus() == Geisternetzstatus.BERGUNG_BEVORSTEHEND;
+	        }
+	    }
+	    return false;
+	}
+	
+	public void verschollen(int id) {
+        for (Geisternetz netz : this.getListe()) {
+            if (netz.getId() == id) {
+                netz.setStatus(Geisternetzstatus.VERSCHOLLEN);
+                break; 
+            }
+        }
+	}
+	
+	public boolean enableVerschollenButton(int id) {
+	    for (Geisternetz netz : liste) {
+	        if (netz.getId() == id) {
+	        	return netz.getStatus() != Geisternetzstatus.GEBORGEN;
 	        }
 	    }
 	    return false;
