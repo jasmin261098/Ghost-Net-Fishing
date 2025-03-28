@@ -54,7 +54,10 @@
 					update="@form" />
 				<p:commandButton value="Bergung abgeschlossen"
 					action="#{geisternetzListe.bergungAbgeschlossen(geisternetz.id)}"
-					update="@form" />
+					disabled="#{!geisternetzListe.shouldEnableButton(geisternetz.id)}"
+					update="@form" >
+					<f:setPropertyActionListener value="#{true}" target="#{buttonController.disable}"/>
+				</p:commandButton>
 			</p:column>
 		</p:dataTable>
 	</h:form>

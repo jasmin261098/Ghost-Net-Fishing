@@ -47,7 +47,15 @@ public class Geisternetzliste implements Serializable {
             }
         }
 	}
-
+	
+	public boolean shouldEnableButton(int id) {
+	    for (Geisternetz netz : liste) {
+	        if (netz.getId() == id) {
+	            return netz.getStatus() == Geisternetzstatus.BERGUNG_BEVORSTEHEND;
+	        }
+	    }
+	    return false;
+	}
 
 	public List<Geisternetz> getListe() {
         return liste;
