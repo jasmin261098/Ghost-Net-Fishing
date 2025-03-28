@@ -17,7 +17,7 @@
 	</h:panelGroup>
 	
 	<h:form>
-    	<h:commandButton value="Zurück" action="index.xhtml?faces-redirect=true" />
+    	<h:commandButton value="Zurück" action="index.xhtml?faces-redirect=true" styleClass="my-button" />
 	</h:form>
 	
 	<h:form prependId="false">
@@ -34,7 +34,7 @@
 	        <h:outputLabel for="größe" value="Geschätzte Größe (in m²):" />
 	        <h:inputText id="größe" value="#{geisternetzController.größe}" required="true" />
 	        
-			<h:commandButton value="Melden" action="#{geisternetzController.meldeGeisternetz}" />
+			<h:commandButton value="Melden" action="#{geisternetzController.meldeGeisternetz}" styleClass="my-button" />
 	    </h:panelGrid>
 	</h:form>
 </h:body>
