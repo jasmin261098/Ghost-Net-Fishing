@@ -12,7 +12,7 @@ public class GeisternetzController implements Serializable  {
 	
 	private String latitude;
 	private String longitude;
-    private int id;
+    private int nr;
     private float größe;
 
 	
@@ -31,11 +31,11 @@ public class GeisternetzController implements Serializable  {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	public int getId() {
-        return id;
+	public int getNr() {
+        return nr;
     }
-    public void setId(int id) {
-        this.id = id;
+    public void setNr(int nr) {
+        this.nr = nr;
     }
     public float getGröße() {
         return größe;
@@ -48,7 +48,7 @@ public class GeisternetzController implements Serializable  {
 	public String meldeGeisternetz() {
 		float lat = Float.parseFloat(latitude);
 		float lon = Float.parseFloat(longitude);
-		Geisternetz geisternetz = new Geisternetz(this.id, new GPS(lat, lon), this.größe, Geisternetzstatus.GEMELDET);
+		Geisternetz geisternetz = new Geisternetz(this.nr, new GPS(lat, lon), this.größe, Geisternetzstatus.GEMELDET);
 		
         geisternetzliste.addGeisternetz(geisternetz);
         

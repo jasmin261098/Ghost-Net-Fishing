@@ -26,7 +26,7 @@
 				<h2>Geisternetze</h2>
 			</f:facet>
 			<p:column headerText="Id">
-				<p:outputLabel value="#{geisternetz.id}" />
+				<p:outputLabel value="#{geisternetz.nr}" />
 			</p:column>
 			<p:column headerText="Bergung zugewiesen">
 				<p:outputLabel value="#{geisternetz.bergendePerson}" />
@@ -50,22 +50,22 @@
 			</p:column>
 			<p:column headerText="Meldungen">
 				<p:commandButton value="Bergung anmelden"
-					action="#{geisternetzListe.bergungEintragen(geisternetz.id, aktuellerBenutzer.name)}"
-					disabled="#{!geisternetzListe.enableBergunganmeldenButton(geisternetz.id)}"
+					action="#{geisternetzListe.bergungEintragen(geisternetz.nr, aktuellerBenutzer.name)}"
+					disabled="#{!geisternetzListe.enableBergunganmeldenButton(geisternetz.nr)}"
 					update="@form">
 					<f:setPropertyActionListener value="#{true}"
 						target="#{buttonController.disable}" />
 				</p:commandButton>
 				<p:commandButton value="Bergung abgeschlossen"
-					action="#{geisternetzListe.bergungAbgeschlossen(geisternetz.id)}"
-					disabled="#{!geisternetzListe.enableBergungButton(geisternetz.id)}"
+					action="#{geisternetzListe.bergungAbgeschlossen(geisternetz.nr)}"
+					disabled="#{!geisternetzListe.enableBergungButton(geisternetz.nr)}"
 					update="@form">
 					<f:setPropertyActionListener value="#{true}"
 						target="#{buttonController.disable}" />
 				</p:commandButton>
 				<p:commandButton value="Verschollen"
-					action="#{geisternetzListe.verschollen(geisternetz.id)}"
-					disabled="#{!geisternetzListe.enableVerschollenButton(geisternetz.id)}"
+					action="#{geisternetzListe.verschollen(geisternetz.nr)}"
+					disabled="#{!geisternetzListe.enableVerschollenButton(geisternetz.nr)}"
 					update="@form">
 					<f:setPropertyActionListener value="#{true}"
 						target="#{buttonController.disable}" />

@@ -1,8 +1,14 @@
 package ghostNetFishing;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class GPS {
     private float längengrad;
     private float breitengrad;
+    
+    public GPS() {
+    }
 
     public GPS(float längengrad, float breitengrad) {
         this.längengrad = längengrad;
@@ -24,7 +30,7 @@ public class GPS {
     public void setBreitengrad(float breitengrad) {
         this.breitengrad = breitengrad;
     }
-    
+
     @Override
     public String toString() {
         return "Längengrad: " + this.längengrad + ", Breitengrad: " + this.breitengrad;
