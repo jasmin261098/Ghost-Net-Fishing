@@ -6,26 +6,25 @@ import jakarta.persistence.*;
 public class Geisternetz {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Automatische ID-Vergabe
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int id;
     
-    @Column(nullable = true) // Bergende Person kann leer sein
+    @Column(nullable = true) 
     private int nr;
 
-    @Embedded // Falls GPS eine eigene @Embeddable Klasse ist
+    @Embedded 
     private GPS standort;
 
-    @Column(nullable = false) // Größe darf nicht null sein
+    @Column(nullable = false)
     private float größe;
 
-    @Enumerated(EnumType.STRING) // Speichert das Enum als String in der DB
+    @Enumerated(EnumType.STRING) 
     @Column(nullable = false)
     private Geisternetzstatus status;
 
-    @Column(nullable = true) // Bergende Person kann leer sein
+    @Column(nullable = true) 
     private String bergendePerson = "";
 
-    // Standard-Konstruktor für Hibernate
     public Geisternetz() {}
 
     public Geisternetz(int nr, GPS standort, float größe, Geisternetzstatus status) {
